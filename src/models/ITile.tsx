@@ -1,4 +1,4 @@
-export interface IBillet {
+export interface ITile {
   x: number;
   y: number;
   z: number;

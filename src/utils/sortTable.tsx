@@ -1,7 +1,7 @@
 import { EDirection } from "../constants/EDirection";
-import { IBillet } from "../models/IBillet";
+import { ITile } from "../models/ITile";
 
-export const sortTable = (table: IBillet[][], direction: EDirection) => {
+export const sortTable = (table: ITile[][], direction: EDirection) => {
   switch (direction) {
     case EDirection.top:
       table.forEach((tilesArray) => {

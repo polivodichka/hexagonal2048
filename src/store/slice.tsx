@@ -17,6 +17,7 @@ const BoardSlice = createSlice({
       state.coordinates = [];
       state.tiles = [];
     },
+
     updateTileValue(state, action) {
       const { x, y, z, value } = action.payload;
       const tile = state.tiles.find(
@@ -43,33 +44,38 @@ const BoardSlice = createSlice({
       tile && state.tiles.splice(state.tiles.indexOf(tile), 1);
       ceil && (ceil.value = 0);
     },
+    setNeedNewTiles(state, action) {
+      state.needNewTiles = action.payload;
+    },
+    resetTileSize(state) {
+      state.tileSize = 0;
+    },
+
     disableKeyboard(state) {
       state.keyboard = false;
     },
     enableKeyboard(state) {
       state.keyboard = true;
     },
-    setNeedNewTiles(state, action) {
-      state.needNewTiles = action.payload;
-    },
+
     setGameStatus(state, action) {
       state.gameStatus = action.payload;
     },
+
     updateScore(state, action) {
       state.score += action.payload;
     },
     resetScore(state) {
       state.score = 0;
     },
+
     updateGameRadius(state, action) {
       state.gameRadius = action.payload;
       state.tileSize =
         (document.documentElement.clientHeight * 0.35) /
         (2 * action.payload - 1);
     },
-    resetTileSize(state) {
-      state.tileSize = 0;
-    },
+
     restartGame(state) {
       state.tiles = [];
       state.restartFlag = !state.restartFlag;

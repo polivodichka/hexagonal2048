@@ -1,9 +1,9 @@
 import { EGameStatus } from "../constants/EGameStatus";
-import { IBillet } from "../models/IBillet";
+import { ITile } from "../models/ITile";
 
 const initial: {
-  coordinates: IBillet[];
-  tiles: IBillet[];
+  coordinates: ITile[];
+  tiles: ITile[];
   keyboard: boolean;
   needNewTiles: boolean;
   gameStatus: EGameStatus;

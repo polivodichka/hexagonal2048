@@ -1,7 +1,8 @@
-import { IBillet } from "../models/IBillet";
+import { EGameStatus } from "../constants/EGameStatus";
+import { ITile } from "../models/ITile";
 import { getXY, getYZ, getZX } from "./getTable";
 
-export const checkGameStatus = (coordinates: IBillet[], radius: number) => {
+export const checkGameStatus = (coordinates: ITile[], radius: number) => {
   const xy = getXY(radius)(coordinates);
   const yz = getYZ(radius)(coordinates);
   const zx = getZX(radius)(coordinates);
@@ -11,7 +12,7 @@ export const checkGameStatus = (coordinates: IBillet[], radius: number) => {
   if (!freeCells) return checkTable(xy) || checkTable(yz) || checkTable(zx);
   else return true;
 };
-const checkTable = (table: IBillet[][]) => {
+const checkTable = (table: ITile[][]) => {
   for (let i = 0; i < table.length; i++) {
     const tileArray = table[i];
     for (let j = 1; j < tileArray.length; j++) {
@@ -21,4 +22,11 @@ const checkTable = (table: IBillet[][]) => {
     }
   }
   return false;
+};
+
+export const IsGameOver = (status: EGameStatus) => {
+  return status === EGameStatus.GameOver;
+};
+export const IsGameWin = (status: EGameStatus) => {
+  return status === EGameStatus.Win;
 };

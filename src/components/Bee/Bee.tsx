@@ -1,5 +1,5 @@
-import { EGameStatus } from "../../constants/EGameStatus";
 import { useAppSelector } from "../../hooks/hooks";
+import { IsGameOver, IsGameWin } from "../../utils/checkGameStatus";
 import { GameStatusStyled } from "../GameStatus/GameStatus.styles";
 import { BeeStyled } from "./Bee.styled";
 
@@ -8,9 +8,9 @@ const Bee = () => {
   return (
     <GameStatusStyled>
       <BeeStyled
-        className={`${
-          gameStatus === EGameStatus.GameOver ? "moveOut" : "moveIn"
-        } ${gameStatus === EGameStatus.Win && "winnerDance"}`}
+        className={`${IsGameOver(gameStatus) ? "moveOut" : "moveIn"} ${
+          IsGameWin(gameStatus) && "winnerDance"
+        }`}
       >
         <div className="bee">
           <div className="antennae"></div>

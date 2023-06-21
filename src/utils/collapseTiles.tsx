@@ -1,6 +1,6 @@
 import { sqrt3, stroke, animationDuration } from "../constants/constants";
 import { EDirection } from "../constants/EDirection";
-import { IBillet } from "../models/IBillet";
+import { ITile } from "../models/ITile";
 import {
   updateTileValue,
   deleteTile,
@@ -10,7 +10,7 @@ import {
 import { AppDispatch, store } from "../store/store";
 
 export const collapse = (
-  collapsePairs: IBillet[][],
+  collapsePairs: ITile[][],
   dispatch: AppDispatch,
   direction: EDirection,
   additionMode = false
@@ -70,7 +70,7 @@ export const collapse = (
   });
 };
 
-export const setCollapsePairs = (table: IBillet[][]) => {
+export const setCollapsePairs = (table: ITile[][]) => {
   const collapsePairs = [];
 
   for (let i = 0; i < table.length; i++) {

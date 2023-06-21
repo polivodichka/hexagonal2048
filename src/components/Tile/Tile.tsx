@@ -1,9 +1,9 @@
-import { EGameStatus } from "../../constants/EGameStatus";
 import { useAppSelector } from "../../hooks/hooks";
-import { IBillet } from "../../models/IBillet";
+import { ITile } from "../../models/ITile";
+import { IsGameWin } from "../../utils/checkGameStatus";
 import { TileStyled } from "./Tile.styled";
 
-const Cell = ({ x, y, z, value }: IBillet) => {
+const Cell = ({ x, y, z, value }: ITile) => {
   const { size, gameStatus } = useAppSelector((state) => {
     return {
       size: state.board.tileSize,
@@ -15,7 +15,7 @@ const Cell = ({ x, y, z, value }: IBillet) => {
       id={`tile${x}${y}${z}`}
       {...{ x, y, z, size }}
       value-data={value ?? 0}
-      className={`tile${value} ${gameStatus === EGameStatus.Win && "hide"}`}
+      className={`tile${value} ${IsGameWin(gameStatus) && "hide"}`}
     >
       {value}
     </TileStyled>

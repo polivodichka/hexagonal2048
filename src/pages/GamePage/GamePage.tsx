@@ -17,6 +17,7 @@ const GamePage = () => {
 
   const dispatch = useAppDispatch();
   const keyboardIsAble = useAppSelector((state) => state.board.keyboard);
+
   useEffect(() => {
     const urlRadius = +global.location.pathname.replace(/\D/g, "");
     dispatch(
@@ -30,6 +31,7 @@ const GamePage = () => {
     const { clientX, clientY } = e.changedTouches[0];
     setStartSwipe(() => [clientX, clientY]);
   };
+
   const handleTouchEndEvent = (e: TouchEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e.changedTouches[0];
     makeMove(

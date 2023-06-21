@@ -1,5 +1,4 @@
 import { useAppSelector } from "../../hooks/hooks";
-import Bee from "../Bee/Bee";
 import { GameStatusStyled } from "./GameStatus.styles";
 
 const GameStatus = () => {

@@ -1,6 +1,7 @@
 import { EGameStatus } from "../../constants/EGameStatus";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { resetScore, restartGame } from "../../store/slice";
+import { IsGameWin } from "../../utils/checkGameStatus";
 import { RestartBtnStyled } from "./RestartBtn.styled";
 
 const RestartBtn = () => {
@@ -11,7 +12,7 @@ const RestartBtn = () => {
   return (
     <RestartBtnStyled
       {...{ x: 0, y: 0, z: 0, size }}
-      className={`${gameStatus === EGameStatus.Win && "show"}`}
+      className={`${IsGameWin(gameStatus) && "show"}`}
       onClick={() => {
         dispatch(resetScore());
         dispatch(restartGame());

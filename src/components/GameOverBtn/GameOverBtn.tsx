@@ -1,6 +1,6 @@
-import { EGameStatus } from "../../constants/EGameStatus";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { resetScore, restartGame } from "../../store/slice";
+import { IsGameOver } from "../../utils/checkGameStatus";
 import { GameOverBtnStyled } from "./GameOverBtn.styled";
 
 const GameOverBtn = () => {
@@ -8,7 +8,7 @@ const GameOverBtn = () => {
   const dispatch = useAppDispatch();
   return (
     <GameOverBtnStyled
-      className={gameStatus === EGameStatus.GameOver ? "show" : ""}
+      className={IsGameOver(gameStatus) ? "show" : ""}
       onClick={() => {
         dispatch(resetScore());
         dispatch(restartGame());

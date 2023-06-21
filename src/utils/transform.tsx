@@ -1,6 +1,6 @@
 import { animationDuration } from "../constants/constants";
 import { EDirection } from "../constants/EDirection";
-import { IBillet } from "../models/IBillet";
+import { ITile } from "../models/ITile";
 import {
   disableKeyboard,
   enableKeyboard,
@@ -16,9 +16,9 @@ import { sortTable } from "./sortTable";
 export const transform = (direction: EDirection, dispatch: AppDispatch) => {
   const radius = store.getState().board.gameRadius;
   dispatch(disableKeyboard());
-  let collapsePairs: IBillet[][] = [];
-  let table2D: IBillet[][] = [];
-  let getTable2D: (coordinates: IBillet[]) => IBillet[][];
+  let collapsePairs: ITile[][] = [];
+  let table2D: ITile[][] = [];
+  let getTable2D: (coordinates: ITile[]) => ITile[][];
   switch (direction) {
     case EDirection.top:
     case EDirection.bottom:
